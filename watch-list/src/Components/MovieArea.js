@@ -1,26 +1,26 @@
-import products from "../Products";
+import movies from "./movies";
 import slugify from "react-slugify";
 import { makeObservable, observable, action } from "mobx";
 
-class ProductStore {
+class MoviesArea {
   movies = movies;
 
-  createProduct = (product) => {
-    product.id = this.products[this.products.length - 1].id + 1;
-    product.slug = slugify(product.name);
-    this.products.push(product);
+  createMovie = (movie) => {
+    movie.id = this.movies[this.movies.length - 1].id + 1;
+    product.id = slugify(movie.name);
+    this.movies.push(movie);
   };
-  deleteProduct = (productId) => {
-    this.products = this.products.filter((product) => product.id !== productId);
+  deleteProduct = (movieId) => {
+    this.movies = this.movies.filter((movie) => movie.id !== movieId);
   };
   constructor() {
     makeObservable(this, {
       movies: observable,
-      deleteProduct: action,
-      createProduct: action,
+      deleteMovie: action,
+      AddMovie: action,
     });
   }
 }
 
-const productsStore = new ProductStore();
-export default productsStore;
+const moviesArea = new MoviesArea();
+export default moviesArea;

@@ -1,9 +1,9 @@
-import products from "../Products";
+import movies from "../Components/movies";
 import slugify from "react-slugify";
 import { makeObservable, observable, action } from "mobx";
 
 class MovieList {
-  products = products;
+  movies = movies;
 
   createProduct = (product) => {
     product.id = this.products[this.products.length - 1].id + 1;
