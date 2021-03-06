@@ -1,12 +1,16 @@
 import React from "react";
-import { BsPlusCircle } from "react-icons/bs";
-import MovieModal from "../MovieModal/MovieModal";
-import { useState } from "react";
-import MovieArea from "../Components/MovieArea";
-export const DeleteButton = ({ movieId }) => {
+import { ButtonWrapper } from "../Components/Styles";
+import moviesArea from "../Components/MovieArea";
+import { Button } from "react-bootstrap";
+import "../App.css";
+const DeleteButton = ({ movieId }) => {
   return (
-    <DeleteButtonStyled onClick={() => MovieArea.deleteMovie(movieId)}>
-      Delete
-    </DeleteButtonStyled>
+    <ButtonWrapper>
+      <Button variant="danger" onClick={() => moviesArea.deleteMovie(movieId)}>
+        Delete Movie
+      </Button>
+    </ButtonWrapper>
   );
 };
+
+export default DeleteButton;
